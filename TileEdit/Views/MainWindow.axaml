@@ -1,0 +1,105 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:TileEdit.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:TileEdit.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="TileEdit.Views.MainWindow"
+		x:DataType="vm:IMainWindowViewModel"
+		x:Name="MainWindowElement"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Alaveri Tileset Editor">
+	<Window.DataContext>
+		<vm:MainWindowViewModel />
+	</Window.DataContext>
+	<Window.Styles>
+		<Style Selector="Separator">
+			<Setter Property="Margin" Value="0"></Setter>
+			<Setter Property="Height" Value="0.1"></Setter>
+		</Style>
+		<Style Selector="StackPanel.Pane">
+			<Setter Property="HorizontalAlignment" Value="Stretch" />
+			<Setter Property="Background" Value="{DynamicResource SystemChromeMediumColor}" />
+		</Style>
+		<Style Selector="Border.PanelBorder">
+			<Setter Property="BorderThickness" Value="0.5" />
+		</Style>
+		<Style Selector="Border.LeftPanelBorder">
+			<Setter Property="Margin" Value="5,0,0,5" />
+			<Setter Property="CornerRadius" Value="6" />
+			<Setter Property="ClipToBounds" Value="True" />
+		</Style>
+		<Style Selector="Border.CenterPanelBorder">
+			<Setter Property="Margin" Value="0,0,0,5" />
+			<Setter Property="CornerRadius" Value="6" />
+			<Setter Property="ClipToBounds" Value="True" />
+		</Style>
+		<Style Selector="Border.RightPanelBorder">
+			<Setter Property="Margin" Value="0,0,5,5" />
+			<Setter Property="CornerRadius" Value="6" />
+			<Setter Property="ClipToBounds" Value="True" />
+		</Style>
+		<Style Selector="GridSplitter.Horizontal">
+			<Setter Property="Opacity" Value="0" />
+			<Setter Property="Width" Value="5" />
+		</Style>
+	</Window.Styles>
+	<DockPanel>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="{Binding Translator[FileMenuItem]}">
+				<MenuItem
+					Header="{Binding Translator[NewMenuItem]}"
+					HotKey="Ctrl+N"
+					InputGesture="Ctrl+N"
+					Command="{Binding NewCommand}"					
+				/>
+				<Separator />
+				<MenuItem
+					Header="{Binding Translator[OpenMenuItem]}"
+					HotKey="Ctrl+O"
+					InputGesture="Ctrl+O"
+					Command="{Binding OpenCommand}"
+				/>
+				<Separator />
+				<MenuItem 
+					Header="{Binding Translator[ExitMenuItem]}"
+					Command="{Binding ExitCommand}"
+					CommandParameter="{Binding ElementName=MainWindowElement}"					
+				/>
+			</MenuItem>
+		</Menu>
+		<Grid Name="MainGrid" DockPanel.Dock="Top">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="200" />
+				<ColumnDefinition Width="5"/>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="5"/>
+				<ColumnDefinition Width="200"/>
+			</Grid.ColumnDefinitions>
+			<Border Grid.Column="0" Classes="PanelBorder LeftPanelBorder">
+   				<StackPanel 
+					Name="LeftPanel" 
+					Orientation="Vertical" 
+					Classes="Pane"
+				/>
+			</Border>
+			<GridSplitter Grid.Column="1" Classes="Horizontal" Name="LeftSplitter" ResizeDirection="Columns" />
+			<Border Grid.Column="2" Classes="PanelBorder CenterPanelBorder">
+				<StackPanel 
+					Name="CenterPanel" 
+					Orientation="Vertical" 
+					Classes="Pane"
+				/>
+			</Border>
+			<GridSplitter Grid.Column="3" Classes="Horizontal" Name="RightSplitter" ResizeDirection="Columns"/>
+			<Border Grid.Column="4" Classes="PanelBorder RightPanelBorder">
+				<StackPanel 
+					Name="RightPanel" 
+					Orientation="Vertical" 
+					Classes="Pane"
+				/>
+			</Border>
+		</Grid>	
+	</DockPanel>
+</Window>
