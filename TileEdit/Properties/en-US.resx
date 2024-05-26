@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CancelButton" xml:space="preserve">
+    <value>_Cancel</value>
+    <comment>Cancel button text</comment>
+  </data>
   <data name="CountryCode" xml:space="preserve">
     <value>en</value>
     <comment>The simple country code of the language, for example "en"</comment>
@@ -133,21 +137,49 @@
     <value>_File</value>
     <comment>Text of th File menu</comment>
   </data>
+  <data name="FixedSize" xml:space="preserve">
+    <value>Fixed Size</value>
+    <comment>Fixed size tileset type</comment>
+  </data>
   <data name="FullCountryCode" xml:space="preserve">
     <value>en-US</value>
     <comment>The full country code of the language, for example "en-US"</comment>
+  </data>
+  <data name="Gray8Bit" xml:space="preserve">
+    <value>8-bit Grayscale</value>
+    <comment>Pixel format: 8-bit Grayscale</comment>
   </data>
   <data name="Identifier" xml:space="preserve">
     <value>AmericanEnglish</value>
     <comment>An identifier used to identify the language.</comment>
   </data>
+  <data name="Indexed6Bit" xml:space="preserve">
+    <value>Indexed 8-bit, 6 bit per channel (VGA)</value>
+    <comment>Pixel format: Indexed 8-bit, 6 bit per channel (VGA)</comment>
+  </data>
+  <data name="Indexed8Bit" xml:space="preserve">
+    <value>Indexed 8-bit, 8 bits per channel</value>
+    <comment>Pixel format: Indexed 8-bit, 8 bits per channel</comment>
+  </data>
   <data name="NewMenuItem" xml:space="preserve">
     <value>_New Tileset</value>
     <comment>Text of the New menu item</comment>
   </data>
+  <data name="NewTilesetDialogTitle" xml:space="preserve">
+    <value>New Tileset</value>
+    <comment>Title for the New Tileset dialog</comment>
+  </data>
+  <data name="OkButton" xml:space="preserve">
+    <value>_Ok</value>
+    <comment>Ok button text</comment>
+  </data>
   <data name="OpenMenuItem" xml:space="preserve">
     <value>_Open...</value>
     <comment>Text of the Open menu item</comment>
+  </data>
+  <data name="PixelFormat" xml:space="preserve">
+    <value>Pixel Format</value>
+    <comment>Pixel format, for example Rgba8</comment>
   </data>
   <data name="QualifiedEnglishName" xml:space="preserve">
     <value>AmericanEnglish</value>
@@ -157,12 +189,44 @@
     <value>American English</value>
     <comment>The qualified translated name, for example "Español Mexicano"</comment>
   </data>
+  <data name="Rgba16Bit" xml:space="preserve">
+    <value>16-bit RGBA, 4 bits per channel</value>
+    <comment>Pixel format: 16-bit RGBA, 4 bits per channel</comment>
+  </data>
+  <data name="Rgba8Bit" xml:space="preserve">
+    <value>32-bit RGBA, 8 bits per channel</value>
+    <comment>Pixel format: 32-bit RGBA, 8 bits per channel</comment>
+  </data>
   <data name="TestTranslationPhrase" xml:space="preserve">
     <value>Translated Phrase</value>
     <comment>Test phrase used for unit testing</comment>
   </data>
+  <data name="TilesetHeight" xml:space="preserve">
+    <value>Height</value>
+    <comment>Height of new tileset</comment>
+  </data>
+  <data name="TilesetType" xml:space="preserve">
+    <value>Tileset Type</value>
+    <comment>Tileset Type in New Tileset Dialog</comment>
+  </data>
+  <data name="TilesetWidth" xml:space="preserve">
+    <value>Width</value>
+    <comment>Width of new tileset</comment>
+  </data>
+  <data name="TileSize" xml:space="preserve">
+    <value>Tile Size</value>
+    <comment>Dimensions of a tile for fixed size tilesets</comment>
+  </data>
   <data name="TranslatedName" xml:space="preserve">
     <value>English</value>
     <comment>The translated name of the language, for example "Español"</comment>
+  </data>
+  <data name="VariableSize" xml:space="preserve">
+    <value>Variable Size</value>
+    <comment>Variable size tileset type</comment>
+  </data>
+  <data name="X" xml:space="preserve">
+    <value>X</value>
+    <comment>"by" for dimensions, for example "10x10"</comment>
   </data>
 </root>

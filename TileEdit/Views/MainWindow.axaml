@@ -8,42 +8,12 @@
         x:Class="TileEdit.Views.MainWindow"
 		x:DataType="vm:IMainWindowViewModel"
 		x:Name="MainWindowElement"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/avalonia-logo.ico"		
         Title="Alaveri Tileset Editor">
 	<Window.DataContext>
 		<vm:MainWindowViewModel />
 	</Window.DataContext>
 	<Window.Styles>
-		<Style Selector="Separator">
-			<Setter Property="Margin" Value="0"></Setter>
-			<Setter Property="Height" Value="0.1"></Setter>
-		</Style>
-		<Style Selector="StackPanel.Pane">
-			<Setter Property="HorizontalAlignment" Value="Stretch" />
-			<Setter Property="Background" Value="{DynamicResource SystemChromeMediumColor}" />
-		</Style>
-		<Style Selector="Border.PanelBorder">
-			<Setter Property="BorderThickness" Value="0.5" />
-		</Style>
-		<Style Selector="Border.LeftPanelBorder">
-			<Setter Property="Margin" Value="5,0,0,5" />
-			<Setter Property="CornerRadius" Value="6" />
-			<Setter Property="ClipToBounds" Value="True" />
-		</Style>
-		<Style Selector="Border.CenterPanelBorder">
-			<Setter Property="Margin" Value="0,0,0,5" />
-			<Setter Property="CornerRadius" Value="6" />
-			<Setter Property="ClipToBounds" Value="True" />
-		</Style>
-		<Style Selector="Border.RightPanelBorder">
-			<Setter Property="Margin" Value="0,0,5,5" />
-			<Setter Property="CornerRadius" Value="6" />
-			<Setter Property="ClipToBounds" Value="True" />
-		</Style>
-		<Style Selector="GridSplitter.Horizontal">
-			<Setter Property="Opacity" Value="0" />
-			<Setter Property="Width" Value="5" />
-		</Style>
 	</Window.Styles>
 	<DockPanel>
 		<Menu DockPanel.Dock="Top">
@@ -53,6 +23,7 @@
 					HotKey="Ctrl+N"
 					InputGesture="Ctrl+N"
 					Command="{Binding NewCommand}"					
+					CommandParameter="{Binding ElementName=MainWindowElement}"					
 				/>
 				<Separator />
 				<MenuItem

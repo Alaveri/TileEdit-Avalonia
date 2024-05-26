@@ -1,0 +1,119 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:vm="using:TileEdit.ViewModels"
+		xmlns:common="using:TileEdit.Common"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:views="clr-namespace:TileEdit.Views"
+		xmlns:models="clr-namespace:TileEdit.Models"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+        x:Class="TileEdit.Views.NewTilesetDialog"
+		x:Name="NewTilesetDialogElement"
+		x:DataType="vm:INewTilesetDialogViewModel"
+		Width="600"
+		Height="400" 
+		CanResize="False"
+		WindowStartupLocation="CenterOwner"
+		Icon="/Assets/avalonia-logo.ico"
+        Title="{Binding Title}">
+	<Window.DataContext>
+		<vm:NewTilesetDialogViewModel />
+	</Window.DataContext>
+	<Window.Resources>
+		<vm:EnumTranslationConverter x:Key="EnumTranslationConverter" />
+		<vm:IntEntryConverter x:Key="IntEntryConverter" />
+	</Window.Resources>
+	<DockPanel>
+		<Grid DockPanel.Dock="Top" Classes="OptionsGrid">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<Label Grid.Row="0" Grid.Column="0" Classes="OptionsLabel" Content="{Binding Translator[TilesetType]}" />
+			<ComboBox 
+				Grid.Row="0"
+				Grid.Column="1"
+				Classes="OptionsEntry"
+				ItemsSource="{Binding TilesetTypes}"	
+				Name="TilesetTypeEntry"				
+				SelectedValue="{Binding SelectedTilesetType, Mode=TwoWay}">				
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock 
+							Text="{Binding, Converter={StaticResource EnumTranslationConverter}}"  />
+					</DataTemplate>
+				</ComboBox.ItemTemplate>				
+			</ComboBox>
+			<Label 
+				Grid.Row="1" 
+				Grid.Column="0"
+				IsVisible="{Binding IsFixedSize}"
+				Classes="OptionsLabel" 
+				Content="{Binding Translator[TileSize]}" 
+			/>
+			<StackPanel IsVisible="{Binding IsFixedSize}"  Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+				<NumericUpDown 
+					Classes="OptionsEntry" 
+					Width="150" 
+					Value="{Binding TileWidth, Converter={StaticResource IntEntryConverter}}, Mode=TwoWay" 
+					Minimum="1"
+					Maximum="9999"
+					ClipValueToMinMax="True"					
+					FormatString="0"					
+				/>				
+				<Label 
+					Classes="OptionsLabel" 
+					Content="{Binding Translator[X]}" 
+				/>
+				<NumericUpDown
+					Classes="OptionsEntry"
+					Width="150"
+					Value="{Binding TileHeight, Converter={StaticResource IntEntryConverter}}, Mode=TwoWay"
+					Minimum="1"
+					Maximum="9999"
+					ClipValueToMinMax="True"
+					FormatString="0"
+				/>
+			</StackPanel>
+			<Label 
+				Grid.Row="2" 
+				Grid.Column="0"
+				Classes="OptionsLabel" 
+				Content="{Binding Translator[PixelFormat]}"
+			/>
+			<ComboBox
+				Grid.Row="2"
+				Grid.Column="1"
+				Classes="OptionsEntry"
+				SelectedValue="{Binding SelectedPixelFormat}"
+				ItemsSource="{Binding PixelFormats, Converter={StaticResource EnumTranslationConverter}}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock
+							Text="{Binding, Converter={StaticResource EnumTranslationConverter}}"  />
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>				
+			
+		</Grid>
+		<Grid DockPanel.Dock="Bottom" Name="ButtonGrid">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button IsDefault="True" Content="{Binding Translator[OkButton]}" Command="{Binding OkCommand}" CommandParameter="{Binding ElementName=NewTilesetDialogElement}" />
+				<Button IsCancel="True" Content="{Binding Translator[CancelButton]}" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=NewTilesetDialogElement}" />
+			</StackPanel>
+		</Grid>
+	</DockPanel>
+</Window>

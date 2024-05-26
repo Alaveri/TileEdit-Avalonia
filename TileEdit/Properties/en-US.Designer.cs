@@ -61,6 +61,15 @@ namespace TileEdit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to _Cancel.
+        /// </summary>
+        internal static string CancelButton {
+            get {
+                return ResourceManager.GetString("CancelButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to en.
         /// </summary>
         internal static string CountryCode {
@@ -97,11 +106,29 @@ namespace TileEdit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fixed Size.
+        /// </summary>
+        internal static string FixedSize {
+            get {
+                return ResourceManager.GetString("FixedSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to en-US.
         /// </summary>
         internal static string FullCountryCode {
             get {
                 return ResourceManager.GetString("FullCountryCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8-bit Grayscale.
+        /// </summary>
+        internal static string Gray8Bit {
+            get {
+                return ResourceManager.GetString("Gray8Bit", resourceCulture);
             }
         }
         
@@ -115,6 +142,24 @@ namespace TileEdit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Indexed 8-bit, 6 bit per channel (VGA).
+        /// </summary>
+        internal static string Indexed6Bit {
+            get {
+                return ResourceManager.GetString("Indexed6Bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indexed 8-bit, 8 bits per channel.
+        /// </summary>
+        internal static string Indexed8Bit {
+            get {
+                return ResourceManager.GetString("Indexed8Bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _New Tileset.
         /// </summary>
         internal static string NewMenuItem {
@@ -124,11 +169,38 @@ namespace TileEdit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Tileset.
+        /// </summary>
+        internal static string NewTilesetDialogTitle {
+            get {
+                return ResourceManager.GetString("NewTilesetDialogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Ok.
+        /// </summary>
+        internal static string OkButton {
+            get {
+                return ResourceManager.GetString("OkButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Open....
         /// </summary>
         internal static string OpenMenuItem {
             get {
                 return ResourceManager.GetString("OpenMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pixel Format.
+        /// </summary>
+        internal static string PixelFormat {
+            get {
+                return ResourceManager.GetString("PixelFormat", resourceCulture);
             }
         }
         
@@ -151,6 +223,24 @@ namespace TileEdit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 16-bit RGBA, 4 bits per channel.
+        /// </summary>
+        internal static string Rgba16Bit {
+            get {
+                return ResourceManager.GetString("Rgba16Bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 32-bit RGBA, 8 bits per channel.
+        /// </summary>
+        internal static string Rgba8Bit {
+            get {
+                return ResourceManager.GetString("Rgba8Bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Translated Phrase.
         /// </summary>
         internal static string TestTranslationPhrase {
@@ -160,11 +250,65 @@ namespace TileEdit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Height.
+        /// </summary>
+        internal static string TilesetHeight {
+            get {
+                return ResourceManager.GetString("TilesetHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tileset Type.
+        /// </summary>
+        internal static string TilesetType {
+            get {
+                return ResourceManager.GetString("TilesetType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Width.
+        /// </summary>
+        internal static string TilesetWidth {
+            get {
+                return ResourceManager.GetString("TilesetWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tile Size.
+        /// </summary>
+        internal static string TileSize {
+            get {
+                return ResourceManager.GetString("TileSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
         internal static string TranslatedName {
             get {
                 return ResourceManager.GetString("TranslatedName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variable Size.
+        /// </summary>
+        internal static string VariableSize {
+            get {
+                return ResourceManager.GetString("VariableSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X.
+        /// </summary>
+        internal static string X {
+            get {
+                return ResourceManager.GetString("X", resourceCulture);
             }
         }
     }

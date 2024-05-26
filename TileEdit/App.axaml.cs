@@ -14,7 +14,7 @@ namespace TileEdit;
 
 public partial class App : Application
 {
-    protected IServiceProvider ServiceProvider { get; private set; }
+    public IServiceProvider ServiceProvider { get; private set; }
 
     public App()
     {
@@ -27,8 +27,10 @@ public partial class App : Application
     {
         services
             .AddSingleton<IUserConfiguration>(Configuration.Load<UserConfiguration>(ConfigurationType.User, "Alaveri", "TileEdit"))
+            .AddSingleton<ILanguageTranslator>(new LanguageTranslator(new ResourceLanguageDataSource(Properties.en_US.ResourceManager)))
             .AddSingleton<IMainWindowViewModel, MainWindowViewModel>()
-            .AddSingleton<ILanguageTranslator>(new LanguageTranslator(new ResourceLanguageDataSource(Properties.en_US.ResourceManager)));
+            .AddSingleton<INewTilesetDialogViewModel, NewTilesetDialogViewModel>();
+        ;
     }
 
     public override void Initialize()

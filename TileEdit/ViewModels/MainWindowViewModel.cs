@@ -1,8 +1,8 @@
 ﻿using Alaveri.Localization;
 using Avalonia.Controls;
-using ReactiveUI;
-using System;
+using CommunityToolkit.Mvvm.Input;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using TileEdit.Common;
 using TileEdit.Views;
@@ -11,15 +11,19 @@ namespace TileEdit.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
 {
+    private NewTilesetDialog? NewTilesetDialog { get; set; } 
+
     public ICommand ExitCommand { get; } 
 
     public ICommand NewCommand { get; }
 
     public ICommand OpenCommand { get; }
 
-    public void NewTileset()
+    public async Task NewTileset(Window? window)
     {
-        Debug.WriteLine("New tileset");
+        NewTilesetDialog = new NewTilesetDialog();
+        await NewTilesetDialog.ShowDialog(window!);
+        NewTilesetDialog = null;
     }
 
     public void OpenTileset()
@@ -27,41 +31,41 @@ public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
         Debug.WriteLine("Open tileset");
     }
 
-    public void Close(Window window)
+    public void Close(Window? window)
     {
         window?.Close();
     }
 
     public ILanguageTranslator Translator { get; }
 
-    public IUserConfiguration UserConfiguration { get;}
+    public IUserConfiguration Configuration { get;}
 
     public void WindowInitialized(MainWindow window)
     {
         if (Design.IsDesignMode)
             return;
-        UserConfiguration.RestoreWindowState("MainWindow", window);
-        window.MainGrid.ColumnDefinitions[0].Width = new GridLength(UserConfiguration.LeftPanelWidth);
-        window.MainGrid.ColumnDefinitions[4].Width = new GridLength(UserConfiguration.RightPanelWidth);
+        Configuration.RestoreWindowState("MainWindow", window);
+        window.MainGrid.ColumnDefinitions[0].Width = new GridLength(Configuration.LeftPanelWidth);
+        window.MainGrid.ColumnDefinitions[4].Width = new GridLength(Configuration.RightPanelWidth);
     }
 
     public void WindowClosing(MainWindow window)
     {
         if (Design.IsDesignMode)
             return;
-        UserConfiguration.StoreWindowState("MainWindow", window);
-        UserConfiguration.LeftPanelWidth = window.MainGrid.ColumnDefinitions[0].Width.Value;
-        UserConfiguration.RightPanelWidth = window.MainGrid.ColumnDefinitions[4].Width.Value;
-        UserConfiguration.Save();
+        Configuration.StoreWindowState("MainWindow", window);
+        Configuration.LeftPanelWidth = window.MainGrid.ColumnDefinitions[0].Width.Value;
+        Configuration.RightPanelWidth = window.MainGrid.ColumnDefinitions[4].Width.Value;
+        Configuration.Save();
     }
 
     public MainWindowViewModel(ILanguageTranslator translator, IUserConfiguration configuration)
     {
         Translator = translator;
-        NewCommand = ReactiveCommand.Create(NewTileset);
-        ExitCommand = ReactiveCommand.Create<Window>(Close);
-        OpenCommand = ReactiveCommand.Create(OpenTileset);
-        UserConfiguration = configuration;
+        NewCommand = new AsyncRelayCommand<Window>(NewTileset);
+        ExitCommand = new RelayCommand<Window>(Close);
+        OpenCommand = new RelayCommand(OpenTileset);
+        Configuration = configuration;
     } 
 
     public MainWindowViewModel() : 

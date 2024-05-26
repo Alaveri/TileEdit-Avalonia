@@ -11,19 +11,23 @@
 		<AvaloniaResource Include="Assets\**" />
 	</ItemGroup>
 
+
 	<ItemGroup>
-		<PackageReference Include="Alaveri.Avalonia" Version="1.1.0-dev.228" />
-		<PackageReference Include="Alaveri.Configuration" Version="1.1.0-dev.228" />
-		<PackageReference Include="Alaveri.Core" Version="1.1.0-dev.228" />
-		<PackageReference Include="Alaveri.Data" Version="1.1.0-dev.228" />
-		<PackageReference Include="Alaveri.Localization" Version="1.1.0-dev.228" />
+	  <AvaloniaResource Remove="Assets\Styles\BaseStyles.axaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Alaveri.Avalonia" Version="1.1.0-dev.242" />
+		<PackageReference Include="Alaveri.Configuration" Version="1.1.0-dev.242" />
+		<PackageReference Include="Alaveri.Core" Version="1.1.0-dev.242" />
+		<PackageReference Include="Alaveri.Data" Version="1.1.0-dev.242" />
+		<PackageReference Include="Alaveri.Localization" Version="1.1.0-dev.242" />
 		<PackageReference Include="Avalonia" Version="11.0.10" />
 		<PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.10" />
 		<PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10" />
-		<PackageReference Include="Avalonia.ReactiveUI" Version="11.0.10" />
-		<PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
 		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
 		<PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp" Version="2.88.8" />
 	</ItemGroup>
@@ -41,5 +45,15 @@
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>en-US.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <UpToDateCheckInput Remove="Views\NewTilesetDialog.axaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AvaloniaXaml Update="Assets\Styles\BaseStyles.axaml">
+	    <SubType>Designer</SubType>
+	  </AvaloniaXaml>
 	</ItemGroup>
 </Project>

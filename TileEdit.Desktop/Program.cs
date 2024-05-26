@@ -1,7 +1,5 @@
 ﻿using System;
-
 using Avalonia;
-using Avalonia.ReactiveUI;
 
 namespace TileEdit.Desktop;
 
@@ -15,11 +13,8 @@ class Program
         .StartWithClassicDesktopLifetime(args);
 
     // Avalonia configuration, don't remove; also used by visual designer.
-    public static AppBuilder BuildAvaloniaApp()
-        => AppBuilder.Configure<App>()
-            .UsePlatformDetect()
-            .WithInterFont()
-            .LogToTrace()
-            .UseReactiveUI();
-
+    public static AppBuilder BuildAvaloniaApp() => AppBuilder.Configure<App>()
+        .UsePlatformDetect()
+        .WithInterFont()
+        .LogToTrace();
 }
