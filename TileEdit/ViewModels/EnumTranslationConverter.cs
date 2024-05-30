@@ -1,4 +1,4 @@
-﻿using Alaveri.Core.Enumerations.Extensions;
+﻿using Alaveri.Core.Extensions;
 using Alaveri.Localization;
 using Avalonia.Data.Converters;
 using Microsoft.Extensions.DependencyInjection;

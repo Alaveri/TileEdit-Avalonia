@@ -1,14 +1,10 @@
 ﻿using Alaveri.Core.Enumerations;
-using Alaveri.Core.Enumerations.Extensions;
-using Microsoft.CodeAnalysis;
+using Alaveri.Core.Extensions;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using static System.Net.WebRequestMethods;
 
 namespace TileEdit.Models;
 

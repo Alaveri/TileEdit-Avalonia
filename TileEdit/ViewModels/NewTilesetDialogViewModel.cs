@@ -1,18 +1,14 @@
-﻿using Alaveri.Core.Enumerations;
-using Alaveri.Core.Enumerations.Extensions;
-using Alaveri.Localization;
+﻿using Alaveri.Localization;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Platform;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Windows.Input;
 using TileEdit.Common;
@@ -20,15 +16,15 @@ using TileEdit.Models;
 
 namespace TileEdit.ViewModels;
 
-public partial class NewTilesetDialogViewModel(ILanguageTranslator translator, IUserConfiguration configuration) : ViewModelBase, INewTilesetDialogViewModel
+public partial class NewTilesetDialogViewModel : ViewModelBase, INewTilesetDialogViewModel
 {
-    public ICommand OkCommand { get; } = new RelayCommand<Window>((window) => window?.Close());
+    public ICommand OkCommand { get; } 
 
-    public ICommand CancelCommand { get; } = new RelayCommand<Window>((window) => window?.Close());
+    public ICommand CancelCommand { get; } 
 
-    public ILanguageTranslator Translator { get; } = translator;
+    public ILanguageTranslator Translator { get; }
 
-    public IUserConfiguration Configuration { get; } = configuration;
+    public IUserConfiguration Configuration { get; }
 
     public string Title => Translator.Translate("NewTilesetDialogTitle");
 
@@ -50,6 +46,20 @@ public partial class NewTilesetDialogViewModel(ILanguageTranslator translator, I
     public int TileWidth { get; set; } = 16;
 
     public int TileHeight { get; set; } = 16;
+
+    public void OkClick(Window? window)
+    {
+        var tileset = new Tileset(TileWidth, TileHeight, SelectedPixelFormat);
+        window?.Close(tileset);
+    }
+
+    public NewTilesetDialogViewModel(ILanguageTranslator translator, IUserConfiguration configuration)
+    {
+        Translator = translator;
+        Configuration = configuration;
+        CancelCommand = new RelayCommand<Window>((window) => window?.Close());
+        OkCommand = new RelayCommand<Window>(OkClick);
+    }
 
     public NewTilesetDialogViewModel() :
         this(new LanguageTranslator(new ResourceLanguageDataSource(Properties.en_US.ResourceManager)), new UserConfiguration())

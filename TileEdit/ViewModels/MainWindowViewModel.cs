@@ -1,10 +1,13 @@
 ﻿using Alaveri.Localization;
 using Avalonia.Controls;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TileEdit.Common;
+using TileEdit.Models;
 using TileEdit.Views;
 
 namespace TileEdit.ViewModels;
@@ -19,10 +22,22 @@ public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
 
     public ICommand OpenCommand { get; }
 
+    public ObservableCollection<ITilesetEditorViewModel> TilesetEditors { get; } = [];
+
+    private void AddNewTileset(ITileset tileset)
+    {
+        var editor = new TilesetEditorViewModel(tileset, "Untitled.tls", Configuration);
+        TilesetEditors.Add(editor);
+    }
+
     public async Task NewTileset(Window? window)
     {
+        if (window == null)
+            return;
         NewTilesetDialog = new NewTilesetDialog();
-        await NewTilesetDialog.ShowDialog(window!);
+        var tileset = await NewTilesetDialog.ShowDialog<ITileset?>(window!);
+        if (tileset != null)
+            AddNewTileset(tileset);
         NewTilesetDialog = null;
     }
 
@@ -45,8 +60,6 @@ public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
         if (Design.IsDesignMode)
             return;
         Configuration.RestoreWindowState("MainWindow", window);
-        window.MainGrid.ColumnDefinitions[0].Width = new GridLength(Configuration.LeftPanelWidth);
-        window.MainGrid.ColumnDefinitions[4].Width = new GridLength(Configuration.RightPanelWidth);
     }
 
     public void WindowClosing(MainWindow window)
@@ -54,8 +67,6 @@ public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
         if (Design.IsDesignMode)
             return;
         Configuration.StoreWindowState("MainWindow", window);
-        Configuration.LeftPanelWidth = window.MainGrid.ColumnDefinitions[0].Width.Value;
-        Configuration.RightPanelWidth = window.MainGrid.ColumnDefinitions[4].Width.Value;
         Configuration.Save();
     }
 

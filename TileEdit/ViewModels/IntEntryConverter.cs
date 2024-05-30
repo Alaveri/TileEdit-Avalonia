@@ -1,5 +1,5 @@
 ﻿using Alaveri.Core;
-using Alaveri.Core.Extensions.Conversion;
+using Alaveri.Core.Extensions;
 using Avalonia.Data.Converters;
 using System;
 

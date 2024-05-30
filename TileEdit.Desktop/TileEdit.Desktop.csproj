@@ -7,19 +7,19 @@
 		<Nullable>enable</Nullable>
 		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<Platforms>AnyCPU;x64</Platforms>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Alaveri.Avalonia" Version="1.1.0-dev.242" />
-		<PackageReference Include="Alaveri.Configuration" Version="1.1.0-dev.242" />
-		<PackageReference Include="Alaveri.Core" Version="1.1.0-dev.242" />
-		<PackageReference Include="Alaveri.Data" Version="1.1.0-dev.242" />
-		<PackageReference Include="Alaveri.Localization" Version="1.1.0-dev.242" />
+		<PackageReference Include="Alaveri.Avalonia" Version="1.1.1-dev202405280941" />
+		<PackageReference Include="Alaveri.Configuration" Version="1.1.1-dev202405280941" />
+		<PackageReference Include="Alaveri.Core" Version="1.1.1-dev202405280941" />
+		<PackageReference Include="Alaveri.Data" Version="1.1.1-dev202405280941" />
+		<PackageReference Include="Alaveri.Localization" Version="1.1.1-dev202405280941" />
 		<PackageReference Include="Avalonia" Version="11.0.10" />
 		<PackageReference Include="Avalonia.Desktop" Version="11.0.10" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-		<PackageReference Include="SkiaSharp" Version="2.88.8" />
 	</ItemGroup>
 
 	<ItemGroup>

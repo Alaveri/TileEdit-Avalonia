@@ -142,7 +142,7 @@ namespace TileEdit.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Indexed 8-bit, 6 bit per channel (VGA).
+        ///   Looks up a localized string similar to Indexed 8-bit, 6 bits per channel (VGA).
         /// </summary>
         internal static string Indexed6Bit {
             get {

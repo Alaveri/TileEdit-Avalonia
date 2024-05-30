@@ -17,11 +17,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Alaveri.Avalonia" Version="1.1.0-dev.242" />
-		<PackageReference Include="Alaveri.Configuration" Version="1.1.0-dev.242" />
-		<PackageReference Include="Alaveri.Core" Version="1.1.0-dev.242" />
-		<PackageReference Include="Alaveri.Data" Version="1.1.0-dev.242" />
-		<PackageReference Include="Alaveri.Localization" Version="1.1.0-dev.242" />
+		<PackageReference Include="Alaveri.Avalonia" Version="1.1.1-dev202405280941" />
+		<PackageReference Include="Alaveri.Configuration" Version="1.1.1-dev202405280941" />
+		<PackageReference Include="Alaveri.Core" Version="1.1.1-dev202405280941" />
+		<PackageReference Include="Alaveri.Data" Version="1.1.1-dev202405280941" />
+		<PackageReference Include="Alaveri.Localization" Version="1.1.1-dev202405280941" />
 		<PackageReference Include="Avalonia" Version="11.0.10" />
 		<PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.10" />
 		<PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10" />
@@ -29,7 +29,6 @@
 		<PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-		<PackageReference Include="SkiaSharp" Version="2.88.8" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -37,6 +36,9 @@
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
 			<DependentUpon>en-US.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Views\TilesetEditor.axaml.cs">
+		  <DependentUpon>TilesetEditor.axaml</DependentUpon>
 		</Compile>
 	</ItemGroup>
 

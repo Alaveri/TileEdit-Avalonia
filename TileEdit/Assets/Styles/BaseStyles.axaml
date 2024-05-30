@@ -6,6 +6,9 @@
         </Border>
     </Design.PreviewWith>
 
+	<Style Selector=":is(Window)">
+		<Setter Property="Margin" Value="0" />	
+	</Style>
 	<Style Selector="Label">
 		<Setter Property="VerticalAlignment" Value="Center"></Setter>
 	</Style>
@@ -13,6 +16,23 @@
 		<Setter Property="Margin" Value="0,0,10,10" />
 		<Setter Property="MinWidth" Value="75" />
 		<Setter Property="HorizontalContentAlignment" Value="Center" />
+	</Style>
+	<Style Selector="TextBlock.TabHeader">
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Cursor" Value="Hand" />
+	</Style>
+	<Style Selector="TabItem">
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Margin" Value="10,0,10,0" />
+		<Setter Property="MinHeight" Value="30" />
+	</Style>
+	<Style Selector="TabControl.EditorTabs">
+		<Setter Property="VerticalAlignment" Value="Stretch" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+		<Setter Property="Margin" Value="5,0,5,5" />
+		<Setter Property="Padding" Value="0" />
 	</Style>
 	<Style Selector=":is(Control).OptionsEntry">
 		<Setter Property="Margin" Value="0,5,10,5" />
@@ -38,17 +58,17 @@
 		<Setter Property="BorderThickness" Value="0.5" />
 	</Style>
 	<Style Selector="Border.LeftPanelBorder">
-		<Setter Property="Margin" Value="5,0,0,5" />
+		<Setter Property="Margin" Value="0,0,0,0" />
 		<Setter Property="CornerRadius" Value="6" />
 		<Setter Property="ClipToBounds" Value="True" />
 	</Style>
 	<Style Selector="Border.CenterPanelBorder">
-		<Setter Property="Margin" Value="0,0,0,5" />
+		<Setter Property="Margin" Value="0,0,0,0" />
 		<Setter Property="CornerRadius" Value="6" />
 		<Setter Property="ClipToBounds" Value="True" />
 	</Style>
 	<Style Selector="Border.RightPanelBorder">
-		<Setter Property="Margin" Value="0,0,5,5" />
+		<Setter Property="Margin" Value="0,0,0,0" />
 		<Setter Property="CornerRadius" Value="6" />
 		<Setter Property="ClipToBounds" Value="True" />
 	</Style>
@@ -56,5 +76,4 @@
 		<Setter Property="Opacity" Value="0" />
 		<Setter Property="Width" Value="5" />
 	</Style>
-
 </Styles>

@@ -1,5 +1,6 @@
 ﻿using Alaveri.Localization;
 using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using TileEdit.Views;
 
@@ -11,6 +12,8 @@ public interface IMainWindowViewModel
     ICommand NewCommand { get; }
     ICommand OpenCommand { get; }
     ILanguageTranslator Translator { get; }
+    ObservableCollection<ITilesetEditorViewModel> TilesetEditors { get; }
+
     void WindowClosing(MainWindow window);
     void WindowInitialized(MainWindow window);
 }

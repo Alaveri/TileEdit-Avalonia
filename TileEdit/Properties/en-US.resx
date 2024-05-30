@@ -154,7 +154,7 @@
     <comment>An identifier used to identify the language.</comment>
   </data>
   <data name="Indexed6Bit" xml:space="preserve">
-    <value>Indexed 8-bit, 6 bit per channel (VGA)</value>
+    <value>Indexed 8-bit, 6 bits per channel (VGA)</value>
     <comment>Pixel format: Indexed 8-bit, 6 bit per channel (VGA)</comment>
   </data>
   <data name="Indexed8Bit" xml:space="preserve">
